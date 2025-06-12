@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>多頁自我介紹</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #141e30, #243b55);
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .page {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+    }
+    .active {
+      display: flex;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+    button {
+      margin-top: 30px;
+      padding: 10px 25px;
+      font-size: 1em;
+      border: none;
+      border-radius: 25px;
+      background-color: #00c9ff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #92fe9d;
+    }
+  </style>
+</head>
+<body>
+  <!-- 頁面一：自我介紹 -->
+  <div class="page active" id="page1">
+    <h1>自我介紹</h1>
+    <p>我是 柯呈霖</p>
+    <button onclick="nextPage()">下一頁</button>
+  </div>
+
+  <!-- 頁面二：興趣 -->
+  <div class="page" id="page2">
+    <h1>興趣</h1>
+    <p>我喜歡炒股</p>
+    <button onclick="nextPage()">下一頁</button>
+  </div>
+
+  
+
+
+  <!-- 頁面三：我喜歡的遊戲 -->
+  <div class="page" id="page3">
+    <h1>我喜歡的遊戲</h1>
+    <p>Counter-Strike 2</p>
+    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg" width="400">
+    <button onclick="nextPage()">下一頁</button>
+  </div>
+  
+  <!-- 頁面四：黑暗靈魂 -->
+  <div class="page" id="page4">
+    <h1>我喜歡的遊戲</h1>
+    <p>黑暗靈魂3</p>
+    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/374320/header.jpg" width="400">
+    <button onclick="nextPage()">下一頁</button>
+  </div>
+  
+  <!-- 頁面五：Elden Ring -->
+  <div class="page" id="page5">
+    <h1>我喜歡的遊戲</h1>
+    <p>Elden Ring</p>
+    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" width="400">
+    <button onclick="nextPage()">下一頁</button>
+  </div>
+  
+  <!-- 頁面六：結尾 -->
+  <div class="page" id="page6">
+    <h1>感謝觀看</h1>
+    <button onclick="restart()">重新開始</button>
+  </div>
+  
+
+  <script>
+    let current = 1;
+
+function nextPage() {
+  document.getElementById("page" + current).classList.remove("active");
+  current++;
+  document.getElementById("page" + current).classList.add("active");
+}
+
+function restart() {
+  document.getElementById("page" + current).classList.remove("active");
+  current = 1;
+  document.getElementById("page1").classList.add("active");
+}
+
+  </script>
+</body>
+</html>
